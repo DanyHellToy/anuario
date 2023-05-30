@@ -1,0 +1,129 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #0b7cc8;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  h1, h2 {
+    margin: 0;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  section {
+    padding: 20px;
+  }
+  
+  /* Estilos específicos para la tabla de alumnos */
+  #alumnos-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  #alumnos-table th,
+  #alumnos-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  #alumnos-table th {
+    background-color: #0b7cc8;
+    color: #fff;
+  }
+  
+  #alumnos-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  #alumnos-table tbody tr:hover {
+    background-color: #ddd;
+  }
+  
+  .btnagregar {
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #0b7cc8;
+    color: #fff;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .btnagregar:hover {
+    background-color: #444;
+  }
+  /* Estilos generales */
+
+/* ... (estilos generales existentes) ... */
+
+/* Estilos específicos para la tabla de alumnos y profesores */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table th,
+table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+table th {
+  background-color: #0b7cc8;
+  color: #fff;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+table tbody tr:hover {
+  background-color: #ddd;
+}
+
+.btnagregar {
+  display: block;
+  width: 200px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #0b7cc8;
+  color: #fff;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btnagregar:hover {
+  background-color: #444;
+}
+
+  

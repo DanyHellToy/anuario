@@ -1,0 +1,98 @@
+*{
+  font-family: inherit;
+}
+.login-container {
+  max-width: 400px;
+  margin: 5rem auto;
+  padding: 5rem;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  }
+                      /*LOGIN*/
+/*////////////////////////////////////////////////////*/
+.login-container h2 {
+  margin: 0 0 1rem;
+}
+
+.login-container label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #cccccc;
+  border-radius: 0.25rem;
+}
+
+.login-container button {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.login-container a {
+  color: #007bff;
+  
+}
+/*////////////////////////////////////////////////////*/
+  body {
+    background-image: url("/public/images/fondolog.jpg");
+    background-size: cover;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #000000;
+    font-family: inherit;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    color: #000000 ;
+    font-family: inherit;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  input {
+    padding: 0.5rem;
+    border: 1px solid #cccccc;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+  }
+  
+  button {
+    background-color: #0066cc;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #004b8c;
+  }

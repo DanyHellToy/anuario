@@ -1,0 +1,26 @@
+DROP DATABASE IF EXISTS dbanuario1;
+CREATE DATABASE IF NOT EXISTS dbanuario1;
+
+
+Tblalumnos(segunda versión)
+
+create table usuarios (nombre_usuario varchar(30), contraseña varchar(9), fecha_nacimiento DATE, fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL, foto varchar(200), correo_electronico varchar(200), tipo_usuario varchar(200), descripcion varchar(200), primary key (nombre_usuario));
+
+create table profesores (id_usuario NOT NULL AUTO_INCREMENT, nombre_completo varchar(30), contraseña varchar(9), fecha_nacimiento DATE, fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL, especialidadvarchar(200), primary key (id_usuario));
+
+proyectos (id_alumno varchar(30), nombre_proyecto varchar(20), descripcion_proyecto varchar(200), foto_proyecto varchar(200));
+FOREIGN KEY (id_alumno) REFERENCES usuarios(nombre_usuario)
+        ON DELETE CASCADE ON UPDATE CASCADE;
+
+create table tblproyectos(id int NOT NULL AUTO_INCREMENT, nombre varchar(200) NOT NULL, descripcion varchar(1000), enlace varchar(200) NOT NULL, propietario varchar(200) NOT NULL, primary key (id), foreign key (propietario) references tblalumnos(nombre));
+
+
+//Modificar nombres de columnas.
+
+alter table tblalumnos rename column Correo to correo;
+
+
+//Modificar propiedades de columnas.
+(Si por ejemplo, se quiere cambiar el tipo de dato o agregar alguna propiedad como auto_increment).
+
+alter table tblproyectos modify column id int NOT NULL AUTO_INCREMENT;

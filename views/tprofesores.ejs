@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/public/css/tayp.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <title>Tabla de Profesores</title>
+</head>
+<body>
+  <header>
+    <h1>Tabla de Profesores</h1>
+    <nav>
+      <br>
+      <ul>
+        <li><a href="/views/admin">Admin</a></li>
+        <li><a href="/views/addprofesores">Agregar Profesores</a></li>
+        <li><a href="/views/talumnos">Tabla Alumnos</a></li>
+        <li><a href="/views/login">Cerrar sesión</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section>
+    <h2>Profesores Registrados</h2>
+    <table id="profesores-table">
+      <thead>
+        <tr>
+          <th>ID de Profesor</th>
+          <th>Nombre Completo</th>
+          <th>Foto</th>
+          <th>Especialidad</th>
+          <th>Fecha de Registro</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  
+  </section>
+
+  <script>
+    $(document).ready(function() {
+      // Realizar una petición AJAX al servidor para obtener los datos de la tabla de profesores
+      $.ajax({
+        url: '/getProfesores', // Ruta en tu servidor para obtener los profesores
+        method: 'GET',
+        success: function(response) {
+          // Recorrer los profesores y agregar filas a la tabla
+          var profesores = response.profesores;
+          var tbody = $('#profesores-table tbody');
+
+          profesores.forEach(function(profesor) {
+            var row = '<tr>' +
+              '<td>' + profesor.id_profesor + '</td>' +
+              '<td>' + profesor.nombre_completo + '</td>' +
+              '<td>' + profesor.foto + '</td>' +
+              '<td>' + profesor.especialidad + '</td>' +
+              '<td>' + profesor.fecha_registro + '</td>' +
+              '<td>' + profesor.descripcion + '</td>' +
+              '</tr>';
+
+            tbody.append(row);
+          });
+        },
+        error: function(error) {
+          console.error('Error al obtener los profesores:', error);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

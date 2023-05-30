@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/alumnos.css">
+    <title>Alumnos</title>
+</head>
+<body>
+	<header>
+      <h1>Alumnos</h1>
+      <ul>
+        <li><a href="/views/proyectos">Proyectos</a></li>
+      </ul>
+	</header>
+
+        <br>
+        <form class="search-box" onsubmit="event.preventDefault(); searchAlumno()">
+			<input type="text" id="search-input" placeholder="A Quien Buscas?...">
+			<button type="submit">Buscar</button>
+		</form>
+    <br><br><br>
+
+    <div class="carta">
+      <div class="carta-container">
+        <section class="alumnos">
+          <!-- Aquí se mostrarán los datos de los alumnos -->
+         <% alumnos.forEach(function(alumno) { %>
+           <article class="card" data-nombre="<%= alumno.nombre_completo %>">
+              <img src="/public/images/<%= alumno.foto %>" alt="Foto de <%= alumno.nombre_completo %>">
+             <h2><%= alumno.nombre_completo %></h2>
+             <p><%= alumno.carrera %></p>
+             <p><%= alumno.descripcion %></p>
+           </article>
+         <% }); %>
+        </section>
+      </div>
+    </div>
+    
+
+      <style>
+        img {
+          height: 130px;
+          width: 110px;
+          margin-left: 75px;
+          margin-top: 20px;
+          border-radius: 15px;
+        }
+      </style>
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      function searchAlumno() {
+        const searchInput = document.getElementById('search-input');
+        const searchValue = searchInput.value.trim().toLowerCase();
+        const cards = document.querySelectorAll('.card');
+
+        cards.forEach(card => {
+          const nombre = card.getAttribute('data-nombre').toLowerCase();
+
+          if (nombre.includes(searchValue)) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+    </script>
+</body>
+</html>

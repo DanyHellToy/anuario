@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/public/css/add.css">
+  <title>Agregar Alumno</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Agregar Alumno</h1>
+      <form class="form-group" action="/alta" method="POST" enctype="multipart/form-data">
+        <label class="label" for="nombre_usuario">Nombre completo:</label>
+        <input class="input" type="text" name="nombre_usuario" required><br>
+        <label class="label" for="contraseña">Contraseña:</label>
+        <input class="input" type="password" name="contraseña" ><br>
+        <label class="label" for="correo_electronico">Correo electrónico:</label>
+        <input class="input" type="email" name="correo_electronico" required><br>
+        <label class="label" for="fecha_nacimiento">Fecha de nacimiento:</label>
+        <input class="input" type="date" name="fecha_nacimiento" required><br>
+        <label class="label" for="carrera">Carrera:</label>
+        <input class="input" type="text" name="carrera" required><br>
+        <label class="label" for="descripcion">Descripción:</label>
+        <textarea name="descripcion" required></textarea><br>
+        <label class="label" for="foto">Foto:</label>
+        <input class="input" type="file" name="foto" ><br>
+        <input class="input" type="hidden" name="tipo_usuario" value="alumno">
+        <br>
+        <input class="button" type="submit" value="Agregar">
+        
+    </form>
+  </div>
+</body>
+</html>

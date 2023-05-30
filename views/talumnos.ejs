@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/public/css/tayp.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <title>Tabla de Alumnos</title>
+</head>
+<body>
+  <header>
+    <h1>Tabla de Alumnos</h1>
+    <br>
+    <nav>
+      <ul>
+        <li><a href="/views/admin">Admin</a></li>
+        <li><a href="/views/addalumnos">Agregar Alumno</a></li>
+        <li><a href="/views/tprofesores">Tabla Profesores</a></li>
+        <li><a href="/views/login">Cerrar sesión</a></li>
+
+      </ul>
+    </nav>
+  </header>
+  <section>
+    <h2>Alumnos Registrados</h2>
+    <table id="alumnos-table">
+      <thead>
+        <tr>
+          <th>ID de Alumno</th>
+          <th>Nombre Completo</th>
+          <th>Foto</th>
+          <th>Carrera</th>
+          <th>Fecha de Nacimiento</th>
+          <th>Correo Electrónico</th>
+          <th>Fecha de Registro</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    
+  </section>
+
+  <script>
+    $(document).ready(function() {
+      // Realizar una petición AJAX al servidor para obtener los datos de la tabla de alumnos
+      $.ajax({
+        url: '/getAlumnos', // Ruta en tu servidor para obtener los alumnos
+        method: 'GET',
+        success: function(response) {
+          // Recorrer los alumnos y agregar filas a la tabla
+          var alumnos = response.alumnos;
+          var tbody = $('#alumnos-table tbody');
+
+          alumnos.forEach(function(alumno) {
+            var row = '<tr>' +
+              '<td>' + alumno.id_alumno + '</td>' +
+              '<td>' + alumno.nombre_completo + '</td>' +
+              '<td>' + alumno.foto + '</td>' +
+              '<td>' + alumno.carrera + '</td>' +
+              '<td>' + alumno.fecha_nacimiento + '</td>' +
+              '<td>' + alumno.correo_electronico + '</td>' +
+              '<td>' + alumno.fecha_registro + '</td>' +
+              '<td>' + alumno.descripcion + '</td>' +
+              '</tr>';
+
+            tbody.append(row);
+          });
+        },
+        error: function(error) {
+          console.error('Error al obtener los alumnos:', error);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

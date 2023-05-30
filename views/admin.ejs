@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/public/css/admin.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <title>BIENVENIDO ADMINISTRADOR</title>
+</head>
+<body>
+  <header>
+    <h1>Panel de Administración</h1>
+    <nav>
+      <ul>
+        <li><a href="/views/talumnos">Tabla Alumnos</a></li>
+        <li><a href="/views/tprofesores">Tabla Profesores</a></li>
+        <li><a href="/views/editaruser">Editar Usuario</a></li>
+        <li><a href="/views/alumnos">Alumno</a></li>
+        <li><a href="/views/login">Cerrar sesión</a></li>
+        <li><a href="/views/cproyecto">Crear Proyecto</a></li>
+        <li><a href="/views/proyectos">Proyectos</a></li>
+
+      </ul>
+    </nav>
+  </header>
+  <section>
+    <h2>Tabla Usuarios</h2>
+    <table id="usuarios-table">
+      <thead>
+        <tr>
+          <th>ID de Usuario</th>
+          <th>Nombre de Usuario</th>
+          <th>Contraseña</th>
+          <th>Correo Electrónico</th>
+          <th>Fecha de Nacimiento</th>
+          <th>Fecha de Registro</th>
+          <th>Foto</th>
+          <th>Tipo de Usuario</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <button class="btnagregar">Agregar usuario</button>
+  </section>
+
+  <script>
+    $(document).ready(function() {
+      // Realizar una petición AJAX al servidor para obtener los datos de la tabla de usuarios
+      $.ajax({
+        url: '/getUsuarios', // Ruta en tu servidor para obtener los usuarios
+        method: 'GET',
+        success: function(response) {
+          // Recorrer los usuarios y agregar filas a la tabla
+          var usuarios = response.usuarios;
+          var tbody = $('#usuarios-table tbody');
+
+          usuarios.forEach(function(usuario) {
+            var row = '<tr>' +
+            '<td>' + usuario.id_usuario + '</td>' +
+            '<td>' + usuario.nombre_usuario + '</td>' +
+            '<td>' + usuario.contraseña + '</td>' +
+            '<td>' + usuario.correo_electronico + '</td>' +
+            '<td>' + usuario.fecha_nacimiento + '</td>' +
+            '<td>' + usuario.fecha_registro + '</td>' +
+            '<td>' + usuario.foto + '</td>' +
+            '<td>' + usuario.tipo_usuario + '</td>' +
+            '<td>' +
+            '<a href="/views/editaruser?id=' + usuario.id_usuario + '">Editar</a>' +
+            
+            
+            '<a href="/views/eliminar?id=' + usuario.id_usuario + '">Eliminar</a>' +
+            '</td>' +
+            '</tr>';
+
+            tbody.append(row);
+          });
+
+          // Agregar eventos a los botones
+          $('.editar-usuario').click(function() {
+            var idUsuario = $(this).data('id');
+            // Realizar acción de editar usuario con el ID correspondiente
+            console.log('Editar usuario:', idUsuario);
+          });
+
+          // Agregar eventos a los botones
+          $('.eliminar-usuario').click(function() {
+          var idUsuario = $(this).data('id');
+          // Realizar acción de eliminar usuario con el ID correspondiente
+           console.log('Eliminar usuario:', idUsuario);
+
+          // Realizar petición AJAX al servidor para eliminar el usuario
+          $.ajax({
+           url: '/eliminarUsuario/' + idUsuario,
+            method: 'DELETE',
+            success: function(response) {
+              console.log(response.message);
+              // Aquí puedes realizar alguna acción adicional después de eliminar el usuario
+            },
+            error: function(error) {
+            console.error('Error al eliminar el usuario:', error);
+             // Aquí puedes manejar el error de acuerdo a tus necesidades
+            }
+          });
+        });
+        },
+        error: function(error) {
+          console.error('Error al obtener los usuarios:', error);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+/* Estilos generales para addalumnos.ejs y addprofesores.ejs */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0b7cc8;
+  }
+  
+  .container {
+    max-width: 400px;
+    margin: 5rem auto;
+    padding: 5rem;
+    background: #ffffff;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    line-height: 1.5;
+  
+    /* Agregar sombra al contenedor */
+    box-shadow: 0 0 300px rgba(0, 0, 0, 0.2);
+  }
+    
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .button {
+    display: block;
+    
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #45a049;
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 5px;
+  }
+  

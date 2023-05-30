@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/registro.css"> <!-- Agrega esta línea para enlazar el archivo CSS -->
+    <title>Registro Alumnos</title>
+</head>
+<body>
+    <div class="registro-container">
+        <h2>Registro de Maestros</h2>
+        <form action="/registrar" method="POST" enctype="multipart/form-data">
+          <label for="nombre_usuario">Nombre completo:</label>
+          <input type="text" id="nombre_usuario" name="nombre_usuario" required>
+          
+          <label for="correo_electronico">Correo electrónico:</label>
+          <input type="email" id="correo_electronico" name="correo_electronico" required>
+          
+          <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+          <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" placeholder="Ejemplo: AAAA-MM-DD">
+
+          <label for="carrera">Carrera:</label>
+          <input type="text" id="carrera" name="carrera">
+          
+        
+
+        <label for="user">Introduce tu nombre de usuario.</label>
+		<input type="text" id="user" name="user" placeholder="Usuario">
+
+        <label for="pass">Introduce tu contraseña</label>
+		<input type="text" id="pass" name="pass" placeholder="Contraseña">
+
+          <label for="descripcion">Descripción:</label>
+          <textarea id="descripcion" name="descripcion"></textarea>
+        
+          <label for="foto">Foto del Usuario:</label>
+          <input type="file" id="foto" name="foto" accept=".jpg">
+          
+          <button type="submit">Registrarse</button>
+        </form>
+        
+        <a href="/views/login">Inicia sesión aquí</a>
+    </div>
+</body>
+</html>

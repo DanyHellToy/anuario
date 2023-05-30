@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" href="/public/css/cproyecto.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registrar Proyecto</title>
+</head>
+<body>
+  <h2>Registrar Proyecto</h2>
+  
+  <form method="POST" action="/agregarproyecto">
+    <div>
+      <label for="nombre">Nombre de Proyecto:</label>
+      <input type="text" id="nombre_proyecto" name="nombre_proyecto" required />
+    </div>
+
+    <div>
+      <label for="alumno">Id Alumno:</label>
+      <input type="text" id="id_alumno" name="id_alumno" required />
+    </div>
+
+    <div>
+      <label for="descripcion">Descripción:</label>
+      <textarea id="descripcion_proyecto" name="descripcion_proyecto" required></textarea>
+    </div>
+
+    <div>
+      <label for="foto">Foto:</label>
+      <input type="file" id="foto_proyecto" name="foto_proyecto" />
+    </div>
+
+    <input type="submit" value="Registrar" />
+  </form>
+</body>
+</html>

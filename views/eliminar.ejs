@@ -1,0 +1,13 @@
+<form action="/eliminarusuario" method="POST">
+    <label for="id_usuario">ID de Usuario:</label>
+    <input type="text" id="id_usuario" name="id_usuario" required><br><br>
+    <link rel="stylesheet" href="/public/css/eliminar.css">
+    <input type="submit" value="Eliminar Usuario">
+  </form>
+  <script>
+    // Obtener datos del usuario y llenar los campos del formulario
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const myid = urlSearchParams.get('id');
+
+    document.getElementById('id_usuario').value = myid;
+  </script>

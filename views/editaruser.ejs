@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/public/css/editarusuario.css">
+  <title>Editar Usuario</title>
+</head>
+<body>
+  <h1>Editar Usuario</h1>
+  <form action="/editaruser" method="POST">
+
+    <label for="id_usuario">ID de Usuario:</label>
+    <input type="text" id="id_usuario" name="id_usuario" required><br><br>
+
+    <label for="tipo_usuario">Tipo de Usuario:</label>
+    <select id="tipo_usuario" name="tipo_usuario" required>
+      <option value="alumno">Alumno</option>
+      <option value="profesor">Profesor</option>
+      <option value="administrador">Administrador</option>
+    </select><br><br>
+
+    <label for="nombre_usuario">Nombre de Usuario:</label>
+    <input type="text" id="nombre_usuario" name="nombre_usuario" required><br><br>
+
+    <label for="correo_electronico">Correo Electrónico:</label>
+    <input type="email" id="correo_electronico" name="correo_electronico" required><br><br>
+
+    <br><br>
+    <br><br>
+
+    <input type="submit" value="Guardar Cambios">
+  </form>
+
+  <script>
+    // Obtener datos del usuario y llenar los campos del formulario
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const myid = urlSearchParams.get('id');
+
+    document.getElementById('id_usuario').value = myid;
+  </script>
+</body>
+</html>
